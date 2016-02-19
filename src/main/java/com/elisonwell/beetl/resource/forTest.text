@@ -1,0 +1,7 @@
+<%
+for(name in list!){
+	println(name);
+}elsefor{
+	println("list为空!");
+}
+%>

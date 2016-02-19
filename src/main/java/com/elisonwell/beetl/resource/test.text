@@ -1,0 +1,41 @@
+<%
+	var name="duyisong";
+%>
+你好,${name}
+
+<%
+var userList = [{'name':'elisonwell','age':25}]; //模板语言，类似js写法，变量在模板中定义
+for(user in userList!){
+	print(user.name+':'+user.age);
+}elsefor{
+	print("userlist为空!");
+}
+%>
+
+${json(userList)}
+
+<%
+for(entry in map!){  //变量是从java代码中传过来的
+	println(entry.key+':'+entry.value);
+}elsefor{
+	print("map为空!");
+}
+%>
+
+<%for(entry in map!){ %>
+	${entry.key}:${entry.value}
+<%}elsefor{%>
+	${'map为空'}
+<%}%>
+
+
+<%
+var map = null;  //覆盖上面的map
+if(isNotEmpty(map)){  //边界符内可调用内置函数
+	println("map不为空！");
+}else{
+	println("map为空！");
+}
+%>
+
+${isNotEmpty(map)}  //占位符内也可调用内置函数
